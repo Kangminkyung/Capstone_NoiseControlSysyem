@@ -1,35 +1,40 @@
 package com.monad.noisecontrolsystem;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.monad.noisecontrolsystem.Activity.InitActivity;
 import com.monad.noisecontrolsystem.Activity.MainActivity;
-import com.monad.noisecontrolsystem.Activity.NetworkCall;
-import com.monad.noisecontrolsystem.Model.Contributor;
-import com.monad.noisecontrolsystem.Model.GitHubService;
+import com.monad.noisecontrolsystem.Realm.Myinfo;
 
-import java.io.IOException;
-import java.util.List;
+import io.realm.Realm;
+import io.realm.RealmQuery;
+import io.realm.RealmResults;
 
-import retrofit2.Call;
-import retrofit2.Response;
 
 public class Intro extends AppCompatActivity {
-
+    Realm realm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
-        GitHubService gitHubService = GitHubService.retrofit.create(GitHubService.class);
-        final Call<List<Contributor>> call = gitHubService.repoContributors("square", "retrofit");
-        new NetworkCall().execute(call);
+        Realm.init(getApplicationContext());
+        realm = Realm.getDefaultInstance();
 
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
+
+        RealmQuery<Myinfo> query = realm.where(Myinfo.class);
+        RealmResults<Myinfo> result = query.findAll();
+
+        if(result.size() == 0) {
+            Intent i = new Intent(this, InitActivity.class);
+            startActivity(i);
+        } else {
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
+        }
         finish();
     }
 

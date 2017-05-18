@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">NoiseControlSystem</string>
+    <string-array name="planets_array">
+        <item>101</item>
+        <item>102</item>
+        <item>103</item>
+        <item>201</item>
+        <item>202</item>
+        <item>203</item>
+        <item>301</item>
+        <item>302</item>
+    </string-array>
 </resources>
