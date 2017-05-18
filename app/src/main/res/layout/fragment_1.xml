@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/pie_chart"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/info_text"
+        android:gravity="center"
+        android:text="우리집의 소음 지수는 '보통' 입니다"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/line_chart"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>
