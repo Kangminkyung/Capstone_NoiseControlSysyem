@@ -6,10 +6,6 @@ public class Noise extends RealmObject {
     private int vibration;
     private int noise;
 
-    public Noise(int vibration, int noise) {
-        this.vibration = vibration;
-        this.noise = noise;
-    }
 
     public int getVibration() {
         return vibration;

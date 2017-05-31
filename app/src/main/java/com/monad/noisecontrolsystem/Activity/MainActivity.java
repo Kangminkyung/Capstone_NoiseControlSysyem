@@ -1,17 +1,17 @@
 package com.monad.noisecontrolsystem.Activity;
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.monad.noisecontrolsystem.Adapter.PagerAdapter;
-import com.monad.noisecontrolsystem.Fragment.MyFragment;
-import com.monad.noisecontrolsystem.Fragment.MyFragment2;
 import com.monad.noisecontrolsystem.Fragment.ChatFragment;
-import com.monad.noisecontrolsystem.Fragment.MyFragment4;
+import com.monad.noisecontrolsystem.Fragment.MyFragment;
+import com.monad.noisecontrolsystem.Fragment.RankFagment;
+import com.monad.noisecontrolsystem.Fragment.BluetoothFragment;
 import com.monad.noisecontrolsystem.R;
 
 public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     private PagerAdapter adapter;
     private TabLayout tabLayout;
     private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +28,8 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         getSupportFragmentManager().beginTransaction().replace(R.id.viewpager, new MyFragment()).commit();
         setToolbar();
         tabLayout();
-
     }
+
 
     private void setToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -43,9 +44,9 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         adapter = new PagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new MyFragment(), "홈");
-        adapter.addFragment(new MyFragment2(), "랭킹");
+        adapter.addFragment(new RankFagment(), "랭킹");
         adapter.addFragment(new ChatFragment(), "메세지");
-        adapter.addFragment(new MyFragment4(), "설정");
+        adapter.addFragment(new BluetoothFragment(), "설정");
         viewPager.setAdapter(adapter);
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);

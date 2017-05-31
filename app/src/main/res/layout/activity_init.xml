@@ -9,23 +9,20 @@
     tools:context="com.monad.noisecontrolsystem.Activity.InitActivity">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_weight="1"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <Spinner
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:id="@+id/test1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
             />
-        <Spinner
-            android:layout_weight="1"
-            android:id="@+id/spinner_year2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+
     </LinearLayout>
     <Button
         android:background="#2196F3"
